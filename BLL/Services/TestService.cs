@@ -15,6 +15,7 @@ namespace BLL.Services
     {
         public TestService(TestRepository repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
         {
+            
         }
     }
 }
