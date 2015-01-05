@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "UserManager";
+}
+
+<h2>Velcome to the user manager</h2>
+
+@using(Html.BeginForm())
+{
+<div>
+    @foreach (var user in ViewBag.Users)
+    {
+        if (user.RoleId == 3)
+        {
+            continue;
+        }
+        <p>
+            @user.Login 
+            @Html.ActionLink("Удалить", "DeleteUser", "Admin", new {id = user.Id.ToString()}, null)
+        </p>
+    }
+</div>
+}

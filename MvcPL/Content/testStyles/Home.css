@@ -1,0 +1,68 @@
+﻿body {
+    background-color: #dda0dd;
+    background-image: url("600px-Умная_сова.png");
+    background-repeat: no-repeat;
+    -ms-background-size: 550px, 150px;
+    background-size: 550px, 150px;
+    -moz-background-position-x: 800px;
+    -o-background-position-x: 800px;
+    background-position-x: 800px;
+    -moz-background-position-y: 100px;
+    -o-background-position-y: 100px;
+    background-position-y: 100px;
+}
+
+a.main
+{
+    color: #006400;
+    font-family: "Times New Roman";
+    font-size: 30px;
+}
+
+a.tests
+{
+    color: #000080;
+    font-family: "Times New Roman";
+    font-size: 25px;
+}
+
+h1 
+{
+    color: #8b0000;
+    font-family: "Times New Roman";
+    font-size: 50px;
+    text-align: center;
+}
+
+label
+{
+    color: #8b0000;
+    font-family: "Times New Roman";
+    font-size: 50px;
+    text-align: center;
+    align-content: center;
+}
+
+title
+{
+    color: #00008b;
+    font-family: "Times New Roman";
+    font-size: 50px;
+    text-align: center;
+    align-content: center;
+}
+
+input[type = text],[type = password]
+{
+    border:1px solid #9E9E9E;
+    color: #000000;
+    font-size: 20px;
+    font-family: Verdana;
+    background: #FFF;
+}
+
+p.login 
+{
+    font-size: 20px;
+    margin-bottom: 20px;
+}

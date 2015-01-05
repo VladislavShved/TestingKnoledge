@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/testStyles/Home.css" />
+    <title>Добро пожаловать</title>
+</head>
+    <body>
+        <h1>Добро пожаловать на сайт тестирования знаний</h1>
+        <div>
+            @Html.ActionLink("Перейти к тестам", "Test", null, new { @class = "main" })
+        </div>
+        @if (User.IsInRole("admin"))
+        {
+            <div>
+                @Html.ActionLink("Админка", "Index", "Admin", null, new {@class = "main"})
+            </div>
+        }
+        <div>
+            @Html.ActionLink("Выйти", "LogOff", "Account", null, new { @class = "main" })
+        </div>
+    </body>
+</html>

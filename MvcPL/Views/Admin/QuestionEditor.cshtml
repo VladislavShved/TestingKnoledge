@@ -1,0 +1,33 @@
+﻿@model BLL.Interfaces.Objects.Question
+
+@{
+    ViewBag.Title = "QuestionEditor";
+}
+
+<h2>QuestionEditor</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div>
+        <p>
+            Название вопроса:
+        </p>
+        <p>
+            @Html.TextAreaFor(model => model.Text)
+        </p>
+
+        <p>
+            <input type="submit" value="Изменить" />
+        </p>
+    </div>
+    <div>
+        Варианты ответа:
+        @foreach (var variant in Model.Variants)
+        {
+            <p>
+                @variant.Text
+                @Html.ActionLink("Редактировать", "VariantEditor", "Admin", new {id = variant.Id.ToString()}, null)
+            </p>
+        }
+    </div>
+}

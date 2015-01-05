@@ -1,0 +1,32 @@
+﻿@using System.Web.WebSockets
+@model BLL.Interfaces.Objects.Question
+
+@{
+    ViewBag.Title = "Question";
+}
+
+<div>
+    @Html.HiddenFor(x => x.Id)
+    <h3>@Model.Text</h3>
+    
+    @if (Model.NumberAnsers == 1)
+    {
+         foreach (var anser in Model.Variants)
+         {
+             <p>
+                 @Html.RadioButtonFor(model => model.SelectedVariant, anser.IsCorrect)
+                 <span>@anser.Text</span>
+             </p>
+         }
+    }
+    @if (Model.NumberAnsers > 1)
+    {
+    for (int i = 0; i < Model.Variants.Count; i++)
+    {
+            <p>
+                @Html.CheckBoxFor(model => model.SelectedVariant[i], new {id = Model.Variants[i].Text})
+                <span>@Model.Variants[i].Text</span>
+            </p>
+        }
+    }
+</div>

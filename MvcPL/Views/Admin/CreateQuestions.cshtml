@@ -1,0 +1,51 @@
+﻿@model BLL.Interfaces.Objects.Question
+
+@{
+    ViewBag.Title = "CreateQuestions";
+}
+
+<h2>CreateQuestions</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Question</legend>
+
+        <div class="editor-label">
+            @Html.Label("Введите название вопроса")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Введите текст вопроса")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.TestId)
+        
+        <p>
+            <input type="submit" value="Добавить вопрос" />
+        </p>
+    </fieldset>
+   
+}
+
+<div>
+    @Html.Action("GetAllQuestions", new {id = Model.TestId})
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

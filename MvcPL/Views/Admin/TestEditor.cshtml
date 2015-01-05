@@ -1,0 +1,33 @@
+﻿@using BLL.Interfaces.Objects
+@model BLL.Interfaces.Objects.Test
+
+@{
+    ViewBag.Title = "TestEditor";
+}
+
+<h2>TestEditor</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div>
+        Название теста:
+        @Html.TextBoxFor(model => model.Name)
+        <input type="submit" value="Изменить"/>
+    </div>
+    <div>
+        <p>
+            Список вопросов:
+         </p>
+        @foreach (var question in Model.Questions)
+        {
+            <div>
+                @question.Name
+                @Html.ActionLink("Редактировать", "QuestionEditor", "Admin", new {id = question.Id.ToString()}, null)
+                @Html.ActionLink("Удалить", "DeleteQuestion", "Admin", new {id = question.Id.ToString()}, null)
+            </div>
+        }
+        <div>
+            @Html.ActionLink("Добавить вопрос", "CreateQuestions", "Admin", new {id = Model.Id.ToString()}, null)
+        </div>
+    </div>
+}

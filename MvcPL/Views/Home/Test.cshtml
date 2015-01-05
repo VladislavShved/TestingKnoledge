@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Тесты:</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="~/Content/testStyles/Home.css" />
+    </head>
+    <body>
+    <div>
+        @foreach (var test in ViewBag.Tests)
+        {
+            <div>
+                @Html.ActionLink((string)test.Name, "TestResult", "Test", new {id = test.Id.ToString()}, new { @class = "tests" })
+            </div>
+        }
+    </div>
+</body>
+</html>

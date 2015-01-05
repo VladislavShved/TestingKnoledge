@@ -1,0 +1,35 @@
+﻿@model BLL.Interfaces.Objects.Variant
+
+@{
+    ViewBag.Title = "VariantEditor";
+}
+
+<h2>VariantEditor</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div>
+        <p>
+            Текст:
+        </p>
+        <p>
+            
+            @Html.TextAreaFor(model => model.Text)
+        </p>
+        <p>
+            Правильный:
+        </p>
+        <p>
+            @Html.CheckBoxFor(model => model.IsCorrect)
+            
+        </p>
+        <p>
+            <input type="submit" value="Изменить" />
+        </p>
+        <div>
+            <p>
+                @Html.ActionLink("Добавить вариант", "AddVariant", "Admin")
+            </p>
+        </div>
+    </div>
+}

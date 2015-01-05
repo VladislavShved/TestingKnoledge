@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "TestManager";
+}
+
+<h2>TestManager</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+    @foreach (var test in ViewBag.Tests)
+    {
+        <p>
+            @Html.ActionLink((string)test.Name, "TestEditor", "Admin", new { id = test.Id.ToString() }, null)
+            <a href="/Admin/TestDelete/@test.Id" onclick="return confirm('Вы уверены?');">Удалить тест</a>
+        </p>
+    }
+        <div>
+            @Html.ActionLink("Добавить тест", "CreateTest", "Admin")
+        </div>
+    </div>
+}

@@ -1,0 +1,44 @@
+﻿@model BLL.Interfaces.Objects.Variant
+
+@{
+    ViewBag.Title = "CreateVariants";
+}
+
+<h2>CreateVariants</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Variant</legend>
+
+        <div class="editor-label">
+            @Html.Label("Введите текст варианта")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Правильный?")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsCorrect)
+            @Html.ValidationMessageFor(model => model.IsCorrect)
+        </div>
+
+        <p>
+            <input type="submit" value="Создать вариант" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Назад", "RedirectToQuestion", "Admin", new {id = Model.QuestionId.ToString()}, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

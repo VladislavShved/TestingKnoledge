@@ -1,0 +1,31 @@
+﻿@model MvcPL.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Вход";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm(new {ReturnUrl = ViewBag.ReturnUrl}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <div>
+            <p class="login">Логин:</p>
+            @Html.TextBoxFor(m => m.Login)
+            @Html.ValidationMessageFor(m => m.Login)
+        </div>       
+        <div>
+            <p class="login">Пароль:</p>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div>
+            <p class="login">Запомнить меня:</p>
+            @Html.CheckBoxFor(m => m.RememberMe)
+        </div>
+        <div>
+            <input type="submit" value="Войти" />
+        </div>
+}

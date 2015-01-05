@@ -1,0 +1,13 @@
+﻿@model BLL.Interfaces.Objects.Test
+
+@{
+    ViewBag.Title = "TestResult";
+}
+
+<h2>TestResult</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(x => x.Questions)
+    <input type="submit" value="Finish"/>
+}
