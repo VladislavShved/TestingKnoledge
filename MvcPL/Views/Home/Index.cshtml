@@ -11,6 +11,7 @@
     <title>Добро пожаловать</title>
 </head>
     <body>
+        @Html.Partial("LoginPartial")
         <h1>Добро пожаловать на сайт тестирования знаний</h1>
         <div>
             @Html.ActionLink("Перейти к тестам", "Test", null, new { @class = "main" })

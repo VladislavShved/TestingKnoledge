@@ -16,7 +16,6 @@ namespace MvcPL.Controllers
         private readonly ITestService _testService;
         private readonly IVariantService _variantService;
         private readonly IQuestionService _questionService;
-        private int testId;
 
         public TestController(ITestService testService, IVariantService variantService, IQuestionService questionService)
         {
@@ -28,22 +27,24 @@ namespace MvcPL.Controllers
         [HttpGet]
         public ActionResult TestResult(int id)
         {
-            testId = id;
-            var test = _testService.GetById(testId);
-            ViewBag.Test = test;
-            ViewBag.Questions = test.Questions;
+            var test = _testService.GetById(id);
             
             return View(test);
         }
 
         [HttpPost]
-        public string TestResult(Test model)
+        public ActionResult TestResult(Test model)
         {
             var test = _testService.GetById(model.Id);
-            var n = (from question in model.Questions let qt = _questionService.GetById(question.Id) let N = test.Questions.Find(q => q.Id == question.Id).Variants.Count(var => var.IsCorrect) let k = question.SelectedVariant.Count(variant => variant) let correct = question.SelectedVariant.Where((t, i) => qt.Variants[i].IsCorrect && t).Count()
-                     where k == N && correct == N 
-                     select N).Count();
-            return "Тест пройден, правильных ответов: " + n + " из " + model.Questions.Count;
+            int n = 0;
+            foreach (var question in test.Questions)
+            {
+                var modelQuestion = model.Questions.Find(q => q.Id == question.Id);
+                if (modelQuestion.SelectedVariant.Count(var => var) == question.NumberAnsers)
+                    n++;
+            }
+            ViewBag.N = n;
+            return View("TestComplete", test);
         }
 
     }

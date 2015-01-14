@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BLL.Services;
 using MvcPL.Providers;
 using MvcPL.ViewModels;
 
@@ -14,10 +15,29 @@ namespace MvcPL.Controllers
     {
         //
         // GET: /Account/
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
+
+        public AccountController(UserService userService, RoleService roleService)
+        {
+            _userService = userService;
+            _roleService = roleService;
+        }
+
+
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [Authorize]
+        public ActionResult Profile(string login)
+        {
+            var user = _userService.GetByPredicate(us => us.Login == login).FirstOrDefault();
+            user.Role = _roleService.GetById(user.RoleId);
+
+            return View(user);
         }
 
         [HttpPost]

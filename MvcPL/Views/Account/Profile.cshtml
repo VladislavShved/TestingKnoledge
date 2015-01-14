@@ -1,0 +1,22 @@
+﻿@model BLL.Interfaces.Objects.User
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Профиль</h2>
+
+<div>
+    <p>
+        @Html.Label("Имя: " + Model.Name, new {@class = "profile"})
+    </p>
+    <p>
+        @Html.Label("Фамилия: " + Model.Surname, new { @class = "profile" })
+    </p>
+    <p>
+        @Html.Label("Роль: " + Model.Role.Name, new {@class = "profile"})
+    </p>
+</div>
+<div>
+    @Html.ActionLink("Назад", "Index", "Home", null, new {@class = "back"})
+</div>

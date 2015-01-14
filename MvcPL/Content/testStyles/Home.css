@@ -23,7 +23,7 @@ a.tests
 {
     color: #000080;
     font-family: "Times New Roman";
-    font-size: 50px;
+    font-size: 25px;
 }
 
 h1 
@@ -32,6 +32,7 @@ h1
     font-family: "Times New Roman";
     font-size: 50px;
     text-align: center;
+    margin-top: 10px;
 }
 
 label
@@ -41,6 +42,14 @@ label
     font-size: 50px;
     text-align: center;
     align-content: center;
+}
+
+label.hello
+{
+    color: #000000;
+    font-family: "Times New Roman";
+    font-size: 27px;
+    margin-left: 9  00px;
 }
 
 title
@@ -71,6 +80,21 @@ a.back
 {
     color: #008000;
     font-family: "Times New Roman";
-    font-size: 10px;
+    font-size: 20px;
     margin-bottom: 20px;
+}
+
+label.result
+{
+    color: #000080;
+    font-family: "Times New Roman";
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+label.profile 
+{
+    color: #191970;
+    font-family: "Times New Roman";
+    font-size: 20px;
 }

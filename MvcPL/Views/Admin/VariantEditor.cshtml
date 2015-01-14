@@ -28,7 +28,12 @@
         </p>
         <div>
             <p>
-                @Html.ActionLink("Добавить вариант", "AddVariant", "Admin")
+                @Html.ActionLink("Добавить вариант", "CreateVariants", "Admin", new {id = Model.QuestionId.ToString()}, null)
+            </p>
+        </div>
+        <div>
+            <p>
+                @Html.ActionLink("Назад", "QuestionEditor", "Admin", new { id = Model.QuestionId.ToString() }, new { @class = "back" })
             </p>
         </div>
     </div>

@@ -1,0 +1,6 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <label class="hello">
+        Добро пожаловать, @Html.ActionLink(User.Identity.Name, "Profile", "Account", new {login = User.Identity.Name}, null)
+    </label>
+}

@@ -12,7 +12,8 @@ namespace MvcPL.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int UserId { get; set; }
-
+        public string Role { get; set; }
+        public int RoleId { get; set; }
         public virtual User User { get; set; }
     }
 }

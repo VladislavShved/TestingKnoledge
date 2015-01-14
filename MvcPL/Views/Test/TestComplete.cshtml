@@ -1,0 +1,17 @@
+﻿@using BLL.Interfaces.Objects
+@model BLL.Interfaces.Objects.Test
+
+@{
+    ViewBag.Title = "TestComplete";
+}
+
+<div>
+    <p>
+        @Html.Label("Результат: правильных ответов " + (string)ViewBag.N.ToString() + " из " + Model.Questions.Count, new {@class = "result"})
+    </p>
+</div>
+<div>
+    <p>
+        @Html.ActionLink("На главную", "Index", "Home", null, new {@class = "back"})
+    </p>
+</div>

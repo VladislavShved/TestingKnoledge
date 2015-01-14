@@ -29,5 +29,8 @@
         <div>
             @Html.ActionLink("Добавить вопрос", "CreateQuestions", "Admin", new {id = Model.Id.ToString()}, null)
         </div>
+        <div>
+            @Html.ActionLink("Назад", "Index", "Admin", null, new {@class = "back"})
+        </div>
     </div>
 }
